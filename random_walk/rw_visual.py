@@ -26,7 +26,7 @@ while True:
 
     # plota os pontos de rw em um grafico
     plt.style.use("classic")
-    fig, ax = plt.subplots(figsize=(15,9),dpi=64)
+    fig, ax = plt.subplots(figsize=(15,9),dpi=300)
 
     
     point_numbers = range(rw.num_points)
@@ -34,7 +34,7 @@ while True:
     ax.scatter(
         rw.x_values,
         rw.y_values,
-        c=point_numbers, cmap=plt.cm.Greys,  # colorindo os pontos
+        c=point_numbers, cmap=plt.cm.Oranges,  # colorindo os pontos
         edgecolors='none', # descartando o contorno preto em torno de cada ponto
         s=1)
     

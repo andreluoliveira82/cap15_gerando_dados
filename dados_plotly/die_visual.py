@@ -6,7 +6,7 @@ die = Die()  # por padrão Die recebe um valor de 06 lados
 
 # Realiza alguns testes e armazena os resultados em uma lista
 results = []
-jogadas = 50000
+jogadas = 1000
 
 for rol_num in range(jogadas):  # rolando o dado por x vezes
     result = die.roll()  # chama método que rola o dado
