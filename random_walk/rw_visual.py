@@ -1,6 +1,6 @@
 
 # codigo para plotar todos os passos do passeio aleat´rio gerados com a classe random_walk()
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, os
 from pathlib import Path
 from datetime import datetime
 from random_walk import RandomWalk
@@ -10,7 +10,8 @@ def create_directory():
     """Retorna o diretório """
     n = datetime.now().strftime("%y%m%d%H%M%S")
 
-    diretorio = Path("C:/Users\gestao.dados/OneDrive - ALBAN INDUSTRIA E COMERCIO DE EMBALAGENS PLASTICAS LTDA/Imagens/matplotlib_graficos/")
+    diretorio = (Path(f"{Path.home()}/matplotlib_graficos/"))
+    diretorio.mkdir(parents=True, exist_ok=True)
 
     return diretorio/f"mapa-random-walk-{n}"
 #-------------------------------------------------------------------
@@ -20,12 +21,12 @@ def create_directory():
 while True:
     
     # intancia um random walk
-    rw = RandomWalk(50_000)
+    rw = RandomWalk(100_000)
     rw.fill_walk()
 
     # plota os pontos de rw em um grafico
     plt.style.use("classic")
-    fig, ax = plt.subplots(figsize=(15,9),dpi=128)
+    fig, ax = plt.subplots(figsize=(15,9),dpi=64)
 
     
     point_numbers = range(rw.num_points)
@@ -33,7 +34,7 @@ while True:
     ax.scatter(
         rw.x_values,
         rw.y_values,
-        c=point_numbers, cmap=plt.cm.Blues, # colorindo os pontos
+        c=point_numbers, cmap=plt.cm.Greys,  # colorindo os pontos
         edgecolors='none', # descartando o contorno preto em torno de cada ponto
         s=1)
     
